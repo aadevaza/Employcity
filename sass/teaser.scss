@@ -1,0 +1,111 @@
+@import './base/variables';
+@import './base/functions';
+
+.teaser {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url('../img/teaser_bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    height: 100vh;
+
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    &__content-block {
+        max-width: 810px;
+        width: 100%;
+    }
+
+    &__content-title {
+        font-size: 48px;
+        line-height: auto;
+        font-weight: 600;
+        text-transform: uppercase;
+
+        span {
+            color: $lightblue;
+        }
+    }
+
+    &__content-text {
+        margin-top: 80px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    &__content-list {
+        margin-top: 11px;
+    }
+
+    &__content-list-item {
+        position: relative;
+        padding-left: 26px;
+        font-size: 20px;
+    }
+
+    &__content-list-item::before {
+        content: '-';
+        position: absolute;
+        left: 9px;
+    }
+
+    &__content-btns {
+        display: flex;
+        gap: 30px;
+        margin-top: 80px;
+    }
+
+    &__content-btn {
+        max-width: 183px;
+        width: 100%;
+    }
+}
+
+$fromBase: 1919;
+$toBase: 768;
+
+@media (max-width: calc(#{$fromBase} * 1px)) {
+    .teaser {
+        &__content-title {
+            font-size: adaptPx(48, 32, $fromBase, $toBase);
+        }
+
+        &__content-text {
+            font-size: adaptPx(20, 18, $fromBase, $toBase);
+            margin-top: adaptPx(80, 40, $fromBase, $toBase);
+        }
+
+        &__content-list-item {
+            font-size: adaptPx(20, 18, $fromBase, $toBase);
+        }
+
+        &__content-btns {
+            margin-top: adaptPx(80, 40, $fromBase, $toBase);
+        }   
+    }
+}
+
+$fromBase: 767;
+$toBase: 320;
+
+@media (max-width: calc(#{$fromBase} * 1px)) {
+    .teaser {
+        
+        &__content-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        &__content-btn {
+            max-width: 100%;
+            width: 100%;
+        }
+    }
+}

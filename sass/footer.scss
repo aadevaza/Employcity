@@ -1,0 +1,150 @@
+@import './base/variables';
+@import './base/functions';
+
+.footer {
+    background-color: #3D4050;
+    padding: 30px 0;
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__contact-list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+        border-left: 1px solid #c3c3c3;
+        padding-left: 40px;
+        width: 30%;
+    }
+
+    &__payment-list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+        padding: 0 30px;
+    }
+
+    &__info {
+        display: flex;
+        width: 70%;
+    }
+
+    &__payment-list-item {
+        font-size: 13px;
+        color: #C3C3C3;
+        display: flex;
+        align-items: center;
+
+        i {
+            margin-right: 10px;
+        }
+    }
+
+    &__contact-list-item {
+        color: $white;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+
+        i {
+            margin-right: 10px;
+        }
+
+        .icon-qiwi::before {
+            font-size: 13px;
+        }
+
+        .icon-webmoney::before {
+            font-size: 18px;
+        }
+
+        .icon-message::before {
+            color: $lightblue;
+            font-size: 18px;
+        }
+
+        .icon-vk::before {
+            font-size: 12px;
+        }
+    }
+
+    &__copyright {
+        font-size: 13px;
+        color: $white;
+        border-right: 1px solid #c3c3c3;
+        padding-right: 27px;
+        width: 30%;
+    }
+}
+
+$fromBase: 1023;
+$toBase: 768;
+
+@media (max-width: calc(#{$fromBase} * 1px)) {
+    .footer {
+        &__payment-list {
+            padding-left: adaptPx(40, 20, $fromBase, $toBase);
+            margin-bottom: 20px;
+            justify-content: flex-start;
+        }
+
+        &__contact-list {
+            padding-left: adaptPx(40, 20, $fromBase, $toBase);
+            border-left: none;
+        }
+
+        &__copyright {
+            padding-right: adaptPx(40, 15, $fromBase, $toBase);
+            flex: 1;
+            width: 100%;
+        }
+
+        &__info {
+            flex-direction: column;
+        }
+    }
+}
+
+
+$fromBase: 767;
+$toBase: 320;
+
+@media (max-width: calc(#{$fromBase} * 1px)) {
+    .footer {
+        &__wrapper {
+            flex-direction: column;
+            align-items: center;
+        }
+        &__payment-list {
+            padding: 0;
+            
+            justify-content: center;
+        }
+
+        &__contact-list {
+            padding:0;
+            border-left: none;
+            width: 100%;
+            justify-content: center;
+        }
+
+        &__copyright {
+            padding-right: 0;
+            text-align: center;
+            width: 100%;
+            border-right: none;
+            margin-bottom: 20px;
+            order: 2;
+        }
+
+        &__info {
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+.custom-file {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: #ffffff;
+    border: 2px solid #3E9CDC;
+    padding: 12px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    transition: all ease-in-out 0.3s;
+
+    &:hover {
+        background: #3E9CDC;
+        border: 2px solid #ffffff;
+        color: #ffffff;
+    }
+
+    &__icon {
+        margin-right: 10px;
+    }
+}

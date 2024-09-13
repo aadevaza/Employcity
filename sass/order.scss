@@ -1,0 +1,332 @@
+@import './base/variables';
+@import './base/functions';
+
+.order {
+    background-color: $skycaptain;
+    background-image: url('../img/order_bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-top: 120px;
+    padding-bottom: 150px;
+
+    &__title {
+        font-size: 36px;
+        font-weight: 600;
+        color: white;
+        text-transform: uppercase;
+        text-align: center;
+
+        span {
+            color: $lightblue;
+        }
+    }
+
+    &__text {
+        font-size: 18px;
+        color: $lightgrey;
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    &__list {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin-top: 80px;
+    }
+
+    &__list-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 20%;
+        width: 100%;
+    }
+
+    &__list-item-circle {
+        width: 100px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $lightblue;
+        border-radius: 50%;
+        border: 5px solid $darkblue;
+        position: relative;
+        z-index: 99;
+
+        i {
+            font-size: 55px;
+        }
+    }
+
+    &__list-item-circle::before {
+        content: '';
+        position: absolute;
+        width: 110px;
+        height: 6px;
+        left: -125px;
+        background-image: url('../img/dots.png');
+        background-size: contain;
+        z-index: 9;
+    }
+
+    &__list-item:first-child &__list-item-circle::before,
+    &__list-item:nth-child(6) &__list-item-circle::before {
+        display: none;
+    }
+
+    &__list-item-text {
+        text-align: center;
+        margin-top: 20px;
+        color: $white;
+        font-size: 16px;
+    }
+
+    &__form {
+        margin-top: 80px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__form-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-bottom: 30px;
+    }
+
+    &__form-select {
+        position: relative;
+        flex: 1;
+    }
+
+    &__form-input {
+        flex: 1;
+        padding: 12px 10px;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        background: #dfdfdf;
+    }
+
+    &__form-input::placeholder {
+        color: #272733;
+    }
+
+    &__form-range-wrapper {
+        display: flex;
+        flex-direction: column;
+        flex: 2;
+    }
+
+    &__form-row-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        flex: 2;
+        gap: 30px;
+    }
+
+    &__form-file-upload {
+        flex: 1;
+    }
+
+    &__form-range-label {
+        margin-bottom: 10px;
+        color: $white;
+    }
+
+    &__form-range-container {
+        position: relative;
+    }
+
+    &__form-range {
+        -webkit-appearance: none; /* Убираем стандартный вид для вебкита */
+        width: 100%;
+        height: 8px;
+        background: #bdbcbf; /* Цвет полоски */
+        border: 1px solid #fff; /* Бордер вокруг полоски */
+        border-radius: 5px;
+        outline: none;
+        padding: 0;
+        margin: 0;
+
+        /* Стилизация для Chrome, Safari, Edge и Opera */
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #42A9ED; /* Цвет ползунка */
+            border: 2px solid #286690; /* Бордер ползунка */
+            border-radius: 50%;
+            cursor: pointer;
+            margin-top: -5px;
+        }
+
+        /* Для Firefox */
+        &::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            background: #42A9ED;
+            border: 2px solid #286690;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-top: -5px;
+        }
+
+        /* Для IE */
+        &::-ms-thumb {
+            width: 18px;
+            height: 18px;
+            background: #42A9ED;
+            border: 2px solid #286690;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-top: 0;
+        }
+
+        /* Активная часть полоски до ползунка (для Chrome, Safari, Edge, Opera) */
+        &::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 8px;
+            background: #bdbcbf; /* Цвет основной полоски */
+            border: 1px solid #fff; /* Бордер полоски */
+            border-radius: 5px;
+        }
+
+        /* Для Firefox */
+        &::-moz-range-track {
+            width: 100%;
+            height: 8px;
+            background: #bdbcbf;
+            border: 1px solid #fff;
+            border-radius: 5px;
+        }
+
+        /* Для IE */
+        &::-ms-track {
+            width: 100%;
+            height: 8px;
+            background: transparent; /* Скрыть стандартную полосу */
+            border-color: transparent;
+            border-width: 6px 0;
+            color: transparent;
+        }
+
+        &::-ms-fill-lower {
+            background: #bdbcbf;
+            border: 1px solid #fff;
+            border-radius: 5px;
+        }
+
+        &::-ms-fill-upper {
+            background: #bdbcbf;
+            border: 1px solid #fff;
+            border-radius: 5px;
+        }
+    }
+
+    &__form-range-value {
+        position: absolute;
+        right: 0;
+        top: -25px;
+        padding: 2px 5px;
+        color: $white;
+    }
+
+    &__form-submit {
+        max-width: 370px;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+}
+
+$fromBase: 1919;
+$toBase: 1024;
+
+@media (max-width: calc(#{$fromBase} * 1px)) {
+    .order {
+        padding-top: adaptPx(120, 100, $fromBase, $toBase);
+        padding-bottom: adaptPx(150, 100, $fromBase, $toBase);
+
+        &__title {
+            font-size: adaptPx(36, 30, $fromBase, $toBase);
+        }
+
+        &__text {
+            margin-top: adaptPx(30, 28, $fromBase, $toBase);
+        }
+
+        &__list {
+            margin-top: adaptPx(80, 60, $fromBase, $toBase);
+        }
+
+        &__list-item-circle::before {
+            display: none;
+        }
+
+        &__form {
+            margin-top: adaptPx(80, 60, $fromBase, $toBase);
+        }
+    }
+}
+
+$fromBase: 1023;
+$toBase: 768;
+
+@media (max-width: calc(#{$fromBase} * 1px)) {
+    .order {
+        &__list-item-circle::before {
+            display: none;
+        }
+
+        &__list {
+            gap: 15px;
+            justify-content: center;
+        }
+
+        &__list-item {
+            max-width: calc(50% - 15px);
+        }
+
+        &__list-item-circle {
+            width: adaptPx(100, 90, $fromBase, $toBase);
+            height: adaptPx(100, 90, $fromBase, $toBase);
+        }
+    }
+}
+
+
+
+$fromBase: 767;
+$toBase: 320;
+
+@media (max-width: calc(#{$fromBase} * 1px)) {
+    .order {
+        padding-top: adaptPx(100, 60, $fromBase, $toBase);
+        padding-bottom: adaptPx(100, 60, $fromBase, $toBase);;
+
+        &__form-file-upload {
+            font-size:  adaptPx(16, 13, $fromBase, $toBase);
+        }
+
+        &__form-row {
+            flex-direction: column;
+        }
+
+        &__form-row-wrapper {
+            flex-direction: column;
+        }
+
+        &__list-item-circle {
+            width: adaptPx(90, 70, $fromBase, $toBase);
+            height: adaptPx(90, 70, $fromBase, $toBase);
+        }
+
+        &__form-submit {
+            margin-top: adaptPx(40, 0, $fromBase, $toBase);
+        }
+    }
+}
